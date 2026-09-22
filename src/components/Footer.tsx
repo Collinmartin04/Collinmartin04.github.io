@@ -1,4 +1,4 @@
-import { Database, Github, Linkedin, Mail } from 'lucide-react';
+import { BarChart3, Github, Linkedin, Mail } from 'lucide-react';
 import { profile, navItems, type PageId } from '@/data/portfolio';
 
 type FooterProps = {
@@ -14,11 +14,10 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
               <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-accent-500 to-accent-700 text-ink-950">
-                <Database className="w-5 h-5" strokeWidth={2.5} />
+                <BarChart3 className="w-5 h-5" strokeWidth={2.5} />
               </span>
               <span className="font-display font-bold text-lg text-white">
-                {profile.name.split(' ').map((p) => p[0]).join('')}
-                <span className="text-accent-400">.</span>
+                {profile.name}
               </span>
             </div>
             <p className="body max-w-xs text-sm">

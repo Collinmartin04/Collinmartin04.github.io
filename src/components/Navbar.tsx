@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Database } from 'lucide-react';
+import { Menu, X, Home } from 'lucide-react';
 import { navItems, type PageId } from '@/data/portfolio';
 
 type NavbarProps = {
@@ -34,11 +34,8 @@ export default function Navbar({ current, onNavigate }: NavbarProps) {
           onClick={() => handleNav('home')}
           className="flex items-center gap-2.5 group"
         >
-          <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-accent-500 to-accent-700 text-ink-950 group-hover:scale-105 transition-transform">
-            <Database className="w-5 h-5" strokeWidth={2.5} />
-          </span>
-          <span className="font-display font-bold text-lg tracking-tight text-white">
-            CM<span className="text-accent-400">.</span>
+          <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-accent-500 to-accent-700 text-ink-950 group-hover:scale-105 transition-transform">
+            <Home className="w-6 h-6" strokeWidth={2.5} />
           </span>
         </button>
 
