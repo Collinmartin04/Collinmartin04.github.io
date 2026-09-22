@@ -57,7 +57,7 @@ export default function HomePage({ onNavigate }: Props) {
               </span>
               <span className="w-px h-4 bg-ink-700" />
               <a
-                href="https://github.com"
+                href={profile.socials.find((s) => s.icon === 'github')?.href}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
@@ -67,7 +67,7 @@ export default function HomePage({ onNavigate }: Props) {
               </a>
               <span className="w-px h-4 bg-ink-700" />
               <a
-                href="https://linkedin.com"
+                href={profile.socials.find((s) => s.icon === 'linkedin')?.href}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 hover:text-white transition-colors"

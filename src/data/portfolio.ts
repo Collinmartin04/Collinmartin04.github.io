@@ -19,8 +19,8 @@ export const profile = {
   email: 'collin.martinn04@gmail.com',
   phone: '803-317-5969',
   socials: [
-    { label: 'GitHub', href: 'https://github.com', icon: 'github' },
-    { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
+    { label: 'GitHub', href: 'https://github.com/Collinmartin04', icon: 'github' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/collin-martin-6461482b5/', icon: 'linkedin' },
   ],
 };
 

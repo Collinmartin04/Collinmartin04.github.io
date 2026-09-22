@@ -26,7 +26,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             </p>
             <div className="flex items-center gap-3 pt-1">
               <a
-                href="https://github.com"
+                href={profile.socials.find((s) => s.icon === 'github')?.href}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-center w-9 h-9 rounded-lg border border-ink-700 text-ink-400 hover:text-white hover:border-accent-500/50 hover:bg-accent-500/5 transition-all"
@@ -35,7 +35,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <Github className="w-4 h-4" />
               </a>
               <a
-                href="https://linkedin.com"
+                href={profile.socials.find((s) => s.icon === 'linkedin')?.href}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-center w-9 h-9 rounded-lg border border-ink-700 text-ink-400 hover:text-white hover:border-accent-500/50 hover:bg-accent-500/5 transition-all"
