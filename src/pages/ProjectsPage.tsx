@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Sparkles, ArrowUpRight, Filter, ArrowRight } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { Sparkles, ArrowUpRight, Filter, ArrowRight, X } from 'lucide-react';
 import { projects, type Project, type PageId } from '@/data/portfolio';
 
 type Props = {
@@ -25,6 +26,12 @@ const accentMap: Record<Project['accent'], { ring: string; text: string; bg: str
     bg: 'bg-sky-500/10',
     border: 'border-sky-500/30',
   },
+  purple: {
+    ring: 'hover:border-violet-500/40',
+    text: 'text-violet-300',
+    bg: 'bg-violet-500/10',
+    border: 'border-violet-500/30',
+  },
 };
 
 export default function ProjectsPage({ onNavigate }: Props) {
@@ -35,6 +42,17 @@ export default function ProjectsPage({ onNavigate }: Props) {
   const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];
   const [filter, setFilter] = useState('All');
   const filtered = filter === 'All' ? projects : projects.filter((p) => p.category === filter);
+
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
+
+  useEffect(() => {
+    if (!lightboxImage) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxImage(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [lightboxImage]);
 
   return (
     <div className="animate-fade-in pt-28 lg:pt-36 pb-20 lg:pb-28">
@@ -116,6 +134,22 @@ export default function ProjectsPage({ onNavigate }: Props) {
                   />
                 )}
 
+                {/* Screenshots */}
+                {project.images && project.images.length > 0 && (
+                  <div className="mt-5 grid grid-cols-3 gap-2">
+                    {project.images.map((img) => (
+                      <button
+                        key={img.src}
+                        type="button"
+                        onClick={() => setLightboxImage(img)}
+                        className="cursor-zoom-in rounded-lg border border-ink-700/40 overflow-hidden hover:border-accent-500/40 transition-all"
+                      >
+                        <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-20 object-cover" />
+                      </button>
+                    ))}
+                  </div>
+                )}
+
                 {/* Metrics */}
                 {project.metrics.length > 0 && (
                 <div className="mt-5 grid grid-cols-3 gap-3">
@@ -158,6 +192,31 @@ export default function ProjectsPage({ onNavigate }: Props) {
           </div>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightboxImage &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-ink-950/90 p-6 animate-fade-in"
+            onClick={() => setLightboxImage(null)}
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxImage(null)}
+              aria-label="Close"
+              className="absolute top-5 right-5 flex items-center justify-center w-10 h-10 rounded-lg border border-ink-700 text-ink-300 hover:text-white hover:border-accent-500/40 transition-all"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <img
+              src={lightboxImage.src}
+              alt={lightboxImage.alt}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-full max-h-full rounded-xl border border-ink-700/40"
+            />
+          </div>,
+          document.body
+        )}
     </div>
   );
 }

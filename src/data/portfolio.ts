@@ -97,9 +97,10 @@ export type Project = {
   description: string;
   tags: string[];
   metrics: { label: string; value: string }[];
-  accent: 'accent' | 'gold' | 'blue';
+  accent: 'accent' | 'gold' | 'blue' | 'purple';
   githubUrl: string;
   videoUrl?: string;
+  images?: { src: string; alt: string }[];
 };
 
 export const projects: Project[] = [
@@ -144,6 +145,26 @@ export const projects: Project[] = [
     accent: 'gold',
     githubUrl: 'https://github.com/joelgammah/Attendance-Checkin',
     videoUrl: '/videos/qr-checkin-demo.mp4',
+  },
+  {
+    id: 'bank-churn-profitability',
+    title: 'Bank Customer Churn & Profitability',
+    category: 'Business Intelligence',
+    description:
+      'Banks lose revenue when valuable customers leave unnoticed. Using 10,000 retail banking records, I built a MySQL data model with SQL views for profitability and rule-based churn risk scoring, then built Power BI dashboards that flag high-value customers at risk of leaving. Customers the model flagged churned at 36%, nearly double the 20% overall rate.',
+    tags: ['MySQL', 'SQL', 'Power BI', 'DAX', 'Data Modeling'],
+    metrics: [
+      { label: 'Customers analyzed', value: '10,000' },
+      { label: 'High-value at-risk', value: '2,745' },
+      { label: 'Est. profit at risk', value: '$569K' },
+    ],
+    accent: 'purple',
+    githubUrl: 'https://github.com/Collinmartin04/Bank_Customer_Profitability_And_Churn_Risk_Analysis',
+    images: [
+      { src: '/images/bank-churn/executive-overview.png', alt: 'Executive Overview dashboard' },
+      { src: '/images/bank-churn/profitability-segmentation.png', alt: 'Profitability and Segmentation dashboard' },
+      { src: '/images/bank-churn/churn-risk-retention.png', alt: 'Churn Risk and Retention Actions dashboard' },
+    ],
   },
 ];
 
