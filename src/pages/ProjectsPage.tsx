@@ -150,6 +150,23 @@ export default function ProjectsPage({ onNavigate }: Props) {
                   </div>
                 )}
 
+                {/* Key findings */}
+                {project.keyFindings && project.keyFindings.length > 0 && (
+                  <div className="mt-5">
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-ink-500">
+                      Key findings
+                    </h3>
+                    <ul className="mt-2.5 space-y-1.5">
+                      {project.keyFindings.map((finding) => (
+                        <li key={finding} className="text-sm text-ink-400 leading-relaxed pl-4 relative">
+                          <span className={`absolute left-0 top-2 w-1.5 h-1.5 rounded-full bg-current ${a.text}`} />
+                          {finding}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 {/* Metrics */}
                 {project.metrics.length > 0 && (
                 <div className="mt-5 grid grid-cols-3 gap-3">

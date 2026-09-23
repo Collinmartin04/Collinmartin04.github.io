@@ -101,6 +101,7 @@ export type Project = {
   githubUrl: string;
   videoUrl?: string;
   images?: { src: string; alt: string }[];
+  keyFindings?: string[];
 };
 
 export const projects: Project[] = [
@@ -164,6 +165,11 @@ export const projects: Project[] = [
       { src: '/images/bank-churn/executive-overview.png', alt: 'Executive Overview dashboard' },
       { src: '/images/bank-churn/profitability-segmentation.png', alt: 'Profitability and Segmentation dashboard' },
       { src: '/images/bank-churn/churn-risk-retention.png', alt: 'Churn Risk and Retention Actions dashboard' },
+    ],
+    keyFindings: [
+      'Single-product customers churned at 28%, compared with 8% for customers with two products.',
+      'Inactive members churned at nearly twice the rate of active members (27% vs. 14%).',
+      'About 27% of customers are loss-making under the profitability model, even with account fees included.',
     ],
   },
 ];
