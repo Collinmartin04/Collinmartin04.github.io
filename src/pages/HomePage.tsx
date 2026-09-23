@@ -83,7 +83,7 @@ export default function HomePage({ onNavigate }: Props) {
       </section>
 
       {/* About / Intro */}
-      <section className="section-pad relative overflow-hidden">
+      <section className="pt-4 lg:pt-8 pb-20 lg:pb-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-dots opacity-30" />
         <div className="container-mx container-px relative">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Code2, BarChart3, BrainCircuit, Database, Sparkles } from 'lucide-react';
-import { skillCategories, tools, certifications } from '@/data/portfolio';
+import { skillCategories, tools } from '@/data/portfolio';
 
 const iconMap: Record<string, typeof Code2> = {
   code: Code2,
@@ -68,24 +68,6 @@ export default function SkillsPage() {
               >
                 {tool}
               </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Certifications */}
-        <div className="mt-14">
-          <h2 className="heading-3 text-white mb-6">Certifications</h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {certifications.map((cert, i) => (
-              <div
-                key={cert}
-                className={`card-surface p-5 flex items-center gap-3 hover-lift hover:border-gold-500/30 animate-fade-in-up stagger-${Math.min(i + 1, 4)}`}
-              >
-                <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-gold-500/10 text-gold-400 shrink-0">
-                  <Sparkles className="w-4 h-4" />
-                </span>
-                <span className="text-sm font-medium text-ink-200">{cert}</span>
-              </div>
             ))}
           </div>
         </div>

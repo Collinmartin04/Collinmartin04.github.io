@@ -49,8 +49,8 @@ export default function ProjectsPage({ onNavigate }: Props) {
             Selected <span className="text-gradient">projects</span>
           </h1>
           <p className="body-lg mt-6">
-            A sample of analytics, visualization, and machine learning work I've delivered.
-            Each one started with a question worth answering and ended with a measurable result.
+            A sample of my analytics, machine learning, and full-stack work. Each project started
+            with a real problem and ended with a measurable result.
           </p>
         </div>
 
@@ -93,14 +93,21 @@ export default function ProjectsPage({ onNavigate }: Props) {
                       {project.title}
                     </h2>
                   </div>
-                  <span className="flex items-center justify-center w-9 h-9 rounded-lg border border-ink-700 text-ink-400 group-hover:text-white group-hover:border-accent-500/40 transition-all shrink-0">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${project.title} on GitHub`}
+                    className="flex items-center justify-center w-9 h-9 rounded-lg border border-ink-700 text-ink-400 hover:text-white hover:border-accent-500/40 transition-all shrink-0"
+                  >
                     <ArrowUpRight className="w-4 h-4" />
-                  </span>
+                  </a>
                 </div>
 
                 <p className="text-sm text-ink-400 leading-relaxed mt-4">{project.description}</p>
 
                 {/* Metrics */}
+                {project.metrics.length > 0 && (
                 <div className="mt-5 grid grid-cols-3 gap-3">
                   {project.metrics.map((m) => (
                     <div key={m.label} className="text-center p-3 rounded-xl bg-ink-800/40 border border-ink-700/40">
@@ -109,6 +116,7 @@ export default function ProjectsPage({ onNavigate }: Props) {
                     </div>
                   ))}
                 </div>
+                )}
 
                 {/* Tags */}
                 <div className="mt-5 flex flex-wrap gap-2">

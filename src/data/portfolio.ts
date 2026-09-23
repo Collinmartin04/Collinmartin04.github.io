@@ -9,10 +9,10 @@ export const navItems: { id: PageId; label: string }[] = [
 
 export const profile = {
   name: 'Collin Martin',
-  role: 'Computer Science Student & Data Analyst',
+  role: 'Data Science & Analytics',
   tagline: 'Building useful software with data',
   intro:
-    'I am a computer science student at Wofford College with a concentration in data science. I enjoy building practical software, analyzing complex datasets, and turning technical ideas into tools that people can use.',
+    "I'm a computer science graduate from Wofford College, starting a Master's in Analytics at Georgia Tech in 2027. I have hands-on experience across data science, analytics, and software development, building machine learning models, data pipelines, and dashboards that solve real-world problems.",
   intro2:
     'My experience spans software engineering, data pipelines, exploratory analysis, machine learning, and full-stack application development. I am especially interested in work where strong engineering and thoughtful analysis come together.',
   location: 'Charlotte, NC',
@@ -92,36 +92,35 @@ export type Project = {
   tags: string[];
   metrics: { label: string; value: string }[];
   accent: 'accent' | 'gold' | 'blue';
+  githubUrl: string;
 };
 
 export const projects: Project[] = [
   {
     id: 'er-admissions-forecasting',
     title: 'ER Admissions Forecasting',
-    category: 'Time Series',
+    category: 'Demand Forecasting',
     description:
-      'Analyzed more than ten years of NHS England A&E time-series data to identify demand patterns and forecast patient volumes. Built a data pipeline feeding SARIMAX, Prophet, and XGBoost models to improve staffing decisions.',
-    tags: ['Python', 'Pandas', 'Excel', 'Streamlit', 'NumPy', 'Prophet'],
+      'Emergency rooms struggle to staff for unpredictable patient volumes. I analyzed 10+ years of NHS England A&E data and compared SARIMAX, Prophet, and XGBoost models, cutting forecast error by 42%. The results are delivered through an interactive Streamlit dashboard.',
+    tags: ['Python', 'Pandas', 'Excel', 'Streamlit', 'NumPy', 'SARIMAX', 'Prophet', 'XGBoost'],
     metrics: [
       { label: 'Model MAPE', value: '1.8%' },
       { label: 'Baseline MAPE', value: '3.1%' },
-      { label: 'Accuracy gain', value: '+43%' },
+      { label: 'Forecast error', value: '−42%' },
     ],
     accent: 'accent',
+    githubUrl: 'https://github.com/Collinmartin04/ER-Admissions-Forecast',
   },
   {
     id: 'or-check-in',
-    title: 'OR Check In',
+    title: 'QR Check-In System',
     category: 'Full-Stack Application',
     description:
-      'Developed a full-stack event management platform for student organizations. The application includes event scheduling, RSVP tracking, PostgreSQL storage, Auth0-based SSO, role-based access control, QR check-in, recurring events, CSV exports, and audit logging.',
+      'Wofford College needed a faster way to track attendance for classes and campus events. With a four-person Agile team, I built API routes, database models, SSO authentication, and automated tests for a full-stack platform with QR check-ins, attendance analytics, and CSV exports. Wofford plans to adopt it campus-wide.',
     tags: ['Python', 'PostgreSQL', 'React', 'TypeScript', 'FastAPI', 'Docker', 'Auth0'],
-    metrics: [
-      { label: 'Access control', value: 'RBAC' },
-      { label: 'Authentication', value: 'SSO' },
-      { label: 'Deployment', value: 'Docker' },
-    ],
+    metrics: [],
     accent: 'gold',
+    githubUrl: 'https://github.com/joelgammah/Attendance-Checkin',
   },
 ];
 
@@ -140,29 +139,29 @@ export const experience: ExperienceItem[] = [
     role: 'Software Engineering Intern',
     company: 'World Finance',
     period: 'May 2026 — Aug. 2026',
-    location: 'Remote',
+    location: 'Greenville, SC',
     description:
       'Contributed to production web applications serving more than 1 million users while collaborating with a cross-functional team of over 20 engineers.',
     highlights: [
-      'Developed and tested new features and bug fixes using React, TypeScript, Git, SQL, and C# in an agile workflow.',
-      'Used Azure DevOps to manage sprint work, track tickets, and coordinate code reviews and deployments as part of a 20+ person agile team.',
-      'Wrote SQL queries to create, validate, and profile test datasets, ensuring data quality and consistency across the development and testing workflow.',
+      'Wrote SQL queries to create, validate, and profile test datasets, ensuring data quality and consistency across development and testing.',
+      'Developed and tested new features and bug fixes using React, TypeScript, C#, and SQL.',
+      'Used Azure DevOps to manage sprint work, track tickets, and coordinate code reviews and deployments.',
     ],
-    tags: ['React', 'TypeScript', 'C#', 'SQL', 'Git', 'Azure DevOps'],
+    tags: ['SQL', 'React', 'TypeScript', 'C#', 'Next.js', 'Git', 'Azure DevOps'],
   },
   {
     role: 'Undergraduate Research — Data Science & Analytics',
     company: 'Wofford College',
-    period: 'June 2025 — Aug. 2025',
-    location: 'Charlotte, NC',
+    period: 'Jun. 2025 — Aug. 2025',
+    location: 'Spartanburg, SC',
     description:
-      'Applied data engineering, OCR, and exploratory analysis to historical economic research datasets.',
+      'Turned 65 years of scanned stock exchange records into clean, research-ready data for a study on pre-Depression financial markets.',
     highlights: [
-      'Built an ETL pipeline using Python, Tesseract, and OpenCV to extract tabular data from scanned New York Stock Exchange directories from 1868–1933 into structured CSV datasets.',
-      'Cleaned and standardized firm name and location data using Python, resolving OCR inconsistencies to ensure accurate downstream analysis.',
-      'Performed exploratory data analysis and built visualizations with Polars and Datawrapper to support economic research on U.S. financial market access prior to the Great Depression.',
+      'Built an ETL pipeline (Python, Tesseract, OpenCV) to extract tabular data from scanned NYSE directories (1868–1933) into structured CSV datasets covering 10,000+ firms.',
+      'Cleaned and standardized firm name and location data using Python, resolving inconsistencies from OCR errors to ensure accurate downstream analysis.',
+      'Performed exploratory data analysis and built visualizations (PolicyMap, Datawrapper) to support economic research on U.S. financial market access prior to the Great Depression.',
     ],
-    tags: ['Python', 'Tesseract', 'OpenCV', 'Polars', 'Datawrapper', 'ETL'],
+    tags: ['Python', 'Pandas', 'Excel', 'OpenCV', 'Tesseract OCR', 'Data Cleaning'],
   },
 ];
 
@@ -177,20 +176,15 @@ export const education: EducationItem[] = [
   {
     degree: 'M.S. in Analytics',
     school: 'Georgia Institute of Technology',
-    period: 'Jan. 2027 — Dec. 2028',
-    detail: 'Online graduate program based in Atlanta, GA.',
+    period: 'Starting Jan. 2027',
+    detail:
+      "Incoming graduate student in Georgia Tech's online analytics program, focusing on statistics, machine learning, and data-driven decision-making.",
   },
   {
     degree: 'B.S. in Computer Science',
     school: 'Wofford College',
     period: 'Aug. 2022 — May 2026',
-    detail: 'Minor in Business; concentration in Data Science. GPA: 3.43. Dean’s List and S.C. LIFE Scholarship recipient. Study Abroad: Vienna, Austria, Fall 2024.',
+    detail:
+      "Concentration in Data Science, Minor in Business. GPA: 3.43. Dean's List, merit-based S.C. LIFE Scholarship. Studied abroad in Vienna, Austria (Fall 2024).",
   },
-];
-
-export const certifications = [
-  'Concentration in Data Science',
-  'Minor in Business',
-  'S.C. LIFE Scholarship Recipient',
-  'Study Abroad — Vienna, Austria, Fall 2024',
 ];

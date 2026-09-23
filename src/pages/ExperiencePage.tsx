@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { Briefcase, GraduationCap, Award, MapPin, Sparkles } from 'lucide-react';
-import { experience, education, certifications, type PageId } from '@/data/portfolio';
+import { Briefcase, GraduationCap, MapPin, Sparkles } from 'lucide-react';
+import { experience, education, type PageId } from '@/data/portfolio';
 
 type Props = {
   onNavigate: (page: PageId) => void;
@@ -24,8 +24,7 @@ export default function ExperiencePage({ onNavigate }: Props) {
             My <span className="text-gradient">experience</span>
           </h1>
           <p className="body-lg mt-6">
-            Five years of turning data into decisions across retail, fintech, SaaS, and consulting.
-            Here's the path so far.
+            From historical research data to production software, here's where I've put my skills to work.
           </p>
         </div>
 
@@ -51,9 +50,9 @@ export default function ExperiencePage({ onNavigate }: Props) {
                       <h2 className="font-display font-bold text-lg text-white">{item.role}</h2>
                       <p className="text-accent-400 text-sm font-medium">{item.company}</p>
                     </div>
-                    <div className="text-left sm:text-right shrink-0">
+                    <div className="flex flex-col items-start sm:items-end gap-2 shrink-0">
                       <span className="badge-neutral text-xs">{item.period}</span>
-                      <p className="text-xs text-ink-500 mt-1.5 inline-flex items-center gap-1">
+                      <p className="text-xs text-ink-500 inline-flex items-center gap-1 mr-3">
                         <MapPin className="w-3 h-3" />
                         {item.location}
                       </p>
@@ -102,27 +101,6 @@ export default function ExperiencePage({ onNavigate }: Props) {
                 </div>
                 <p className="text-accent-400 text-sm mt-1">{edu.school}</p>
                 <p className="text-sm text-ink-400 mt-2">{edu.detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Certifications */}
-        <div className="mt-14">
-          <h2 className="heading-3 text-white mb-6 flex items-center gap-2.5">
-            <Award className="w-6 h-6 text-gold-400" />
-            Certifications
-          </h2>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {certifications.map((cert, i) => (
-              <div
-                key={cert}
-                className={`card-surface p-4 flex items-center gap-3 hover-lift hover:border-gold-500/30 animate-fade-in-up stagger-${Math.min(i + 1, 4)}`}
-              >
-                <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-gold-500/10 text-gold-400 shrink-0">
-                  <Award className="w-4 h-4" />
-                </span>
-                <span className="text-sm font-medium text-ink-200">{cert}</span>
               </div>
             ))}
           </div>
