@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Briefcase, GraduationCap, MapPin, Sparkles } from 'lucide-react';
+import { Briefcase, GraduationCap, MapPin, Sparkles, ArrowRight } from 'lucide-react';
 import { experience, education, type PageId } from '@/data/portfolio';
 
 type Props = {
@@ -107,11 +107,17 @@ export default function ExperiencePage({ onNavigate }: Props) {
         </div>
 
         {/* CTA */}
-        <div className="mt-14 text-center">
-          <p className="body-lg">Want to see what I've built?</p>
-          <button onClick={() => onNavigate('projects')} className="btn-primary mt-5">
-            View my projects
-          </button>
+        <div className="mt-14 relative overflow-hidden card-surface p-8 lg:p-10 text-center hover:border-accent-500/30">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[160px] bg-accent-500/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="relative">
+            <h2 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white">
+              Want to see what I've built?
+            </h2>
+            <button onClick={() => onNavigate('projects')} className="btn-primary mt-5">
+              View my projects
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
