@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Sparkles, ArrowUpRight, Filter } from 'lucide-react';
+import { Sparkles, ArrowUpRight, Filter, ArrowRight } from 'lucide-react';
 import { projects, type Project, type PageId } from '@/data/portfolio';
 
 type Props = {
@@ -106,6 +106,16 @@ export default function ProjectsPage({ onNavigate }: Props) {
 
                 <p className="text-sm text-ink-400 leading-relaxed mt-4">{project.description}</p>
 
+                {/* Demo video */}
+                {project.videoUrl && (
+                  <video
+                    src={project.videoUrl}
+                    controls
+                    playsInline
+                    className="mt-5 w-full rounded-xl border border-ink-700/40"
+                  />
+                )}
+
                 {/* Metrics */}
                 {project.metrics.length > 0 && (
                 <div className="mt-5 grid grid-cols-3 gap-3">
@@ -132,11 +142,20 @@ export default function ProjectsPage({ onNavigate }: Props) {
         </div>
 
         {/* CTA */}
-        <div className="mt-14 text-center">
-          <p className="body-lg">Want to learn more about my background?</p>
-          <button onClick={() => onNavigate('experience')} className="btn-primary mt-5">
-            See my experience
-          </button>
+        <div className="mt-14 relative overflow-hidden card-surface p-8 lg:p-10 text-center hover:border-accent-500/30">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[160px] bg-accent-500/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="relative">
+            <h2 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white">
+              Want to learn more about my background?
+            </h2>
+            <p className="body mt-3 max-w-xl mx-auto">
+              See the roles, education, and experience behind the work above.
+            </p>
+            <button onClick={() => onNavigate('experience')} className="btn-primary mt-5">
+              See my experience
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

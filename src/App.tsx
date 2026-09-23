@@ -24,7 +24,7 @@ export default function App() {
       <Navbar current={page} onNavigate={handleNavigate} />
       <main>
         {page === 'home' && <HomePage onNavigate={handleNavigate} />}
-        {page === 'skills' && <SkillsPage />}
+        {page === 'skills' && <SkillsPage onNavigate={handleNavigate} />}
         {page === 'projects' && <ProjectsPage onNavigate={handleNavigate} />}
         {page === 'experience' && <ExperiencePage onNavigate={handleNavigate} />}
       </main>

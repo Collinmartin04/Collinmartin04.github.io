@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import { Code2, BarChart3, BrainCircuit, Database, Sparkles } from 'lucide-react';
-import { skillCategories, tools } from '@/data/portfolio';
+import { useEffect } from 'react';
+import { Code2, BarChart3, BrainCircuit, Database, Sparkles, ArrowRight } from 'lucide-react';
+import { skillCategories, type PageId } from '@/data/portfolio';
 
 const iconMap: Record<string, typeof Code2> = {
   code: Code2,
@@ -9,7 +9,11 @@ const iconMap: Record<string, typeof Code2> = {
   database: Database,
 };
 
-export default function SkillsPage() {
+type Props = {
+  onNavigate: (page: PageId) => void;
+};
+
+export default function SkillsPage({ onNavigate }: Props) {
   useEffect(() => {
     document.title = 'Skills — Collin Martin';
   }, []);
@@ -27,8 +31,8 @@ export default function SkillsPage() {
             My technical <span className="text-gradient">toolkit</span>
           </h1>
           <p className="body-lg mt-6">
-            From writing the first SQL query to deploying a production model, here's everything I
-            use to move a data project from idea to impact.
+            The languages, libraries, and tools I use to analyze data, build models, and create
+            applications.
           </p>
         </div>
 
@@ -47,9 +51,14 @@ export default function SkillsPage() {
                   </span>
                   <h2 className="font-display font-semibold text-white text-lg">{cat.title}</h2>
                 </div>
-                <div className="space-y-5">
+                <div className="flex flex-wrap gap-2.5">
                   {cat.skills.map((skill) => (
-                    <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+                    <span
+                      key={skill.name}
+                      className="badge-neutral hover:border-accent-500/40 hover:text-accent-300 hover:bg-accent-500/5 transition-all cursor-default"
+                    >
+                      {skill.name}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -57,55 +66,23 @@ export default function SkillsPage() {
           })}
         </div>
 
-        {/* Tools cloud */}
-        <div className="mt-14">
-          <h2 className="heading-3 text-white mb-6">Tools & technologies I work with</h2>
-          <div className="flex flex-wrap gap-2.5">
-            {tools.map((tool, i) => (
-              <span
-                key={tool}
-                className={`badge-neutral hover:border-accent-500/40 hover:text-accent-300 hover:bg-accent-500/5 transition-all cursor-default animate-fade-in stagger-${Math.min((i % 6) + 1, 6)}`}
-              >
-                {tool}
-              </span>
-            ))}
+        {/* CTA */}
+        <div className="mt-14 relative overflow-hidden card-surface p-8 lg:p-10 text-center hover:border-accent-500/30">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[160px] bg-accent-500/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="relative">
+            <h2 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white">
+              Want to see these tools in action?
+            </h2>
+            <p className="body mt-3 max-w-xl mx-auto">
+              These skills come together in the projects I've shipped, from forecasting models to
+              full-stack applications.
+            </p>
+            <button onClick={() => onNavigate('projects')} className="btn-primary mt-5">
+              View my projects
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
-
-function SkillBar({ name, level }: { name: string; level: number }) {
-  const [width, setWidth] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setWidth(level);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [level]);
-
-  return (
-    <div ref={ref}>
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-sm font-medium text-ink-200">{name}</span>
-        <span className="text-xs font-mono text-ink-500">{level}%</span>
-      </div>
-      <div className="skill-bar">
-        <div className="skill-fill" style={{ width: `${width}%` }} />
       </div>
     </div>
   );

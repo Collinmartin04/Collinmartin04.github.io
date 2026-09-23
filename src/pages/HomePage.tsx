@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ArrowRight, MapPin, Github, Linkedin, Sparkles, TrendingUp, BarChart3, Database } from 'lucide-react';
+import { ArrowRight, MapPin, Github, Linkedin, Sparkles, TrendingUp, BarChart3, Database, Code2 } from 'lucide-react';
 import { profile, type PageId } from '@/data/portfolio';
 
 type Props = {
@@ -93,13 +93,13 @@ export default function HomePage({ onNavigate }: Props) {
                 About me
               </span>
               <h2 className="heading-2 mt-4 text-white">
-                I build software that turns data into something useful.
+                I turn messy data into decisions people can act on.
               </h2>
               <p className="body-lg mt-6">{profile.intro2}</p>
               <p className="body mt-4">
-                Whether it's cleaning messy datasets, building a forecasting model, or shipping
-                a full-stack application, I bring the same curiosity and rigor: understand the
-                problem, respect the data, and deliver something people can actually use.
+                Whether I'm cleaning a messy dataset, building a forecasting model, or shipping
+                an application, I bring the same approach: understand the problem, respect the
+                data, and deliver something useful.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <button onClick={() => onNavigate('skills')} className="btn-ghost text-sm">
@@ -107,6 +107,9 @@ export default function HomePage({ onNavigate }: Props) {
                 </button>
                 <button onClick={() => onNavigate('experience')} className="btn-ghost text-sm">
                   See my experience
+                </button>
+                <button onClick={() => onNavigate('projects')} className="btn-ghost text-sm">
+                  View my projects
                 </button>
               </div>
             </div>
@@ -117,22 +120,22 @@ export default function HomePage({ onNavigate }: Props) {
                 {
                   icon: BarChart3,
                   title: 'Data Analysis',
-                  desc: 'Cleaning, exploring, and visualizing complex datasets.',
+                  desc: 'Cleaning, exploring, and visualizing complex datasets with Python, SQL, and Excel.',
                 },
                 {
                   icon: TrendingUp,
-                  title: 'Forecasting',
-                  desc: 'Time-series models that predict demand and improve decisions.',
+                  title: 'Forecasting & Modeling',
+                  desc: 'Time-series and machine learning models that predict demand and guide decisions.',
                 },
                 {
                   icon: Database,
-                  title: 'Full-Stack Development',
-                  desc: 'End-to-end applications with real users in production.',
+                  title: 'Data Pipelines & ETL',
+                  desc: 'Extracting structured data from messy sources, even 150-year-old scans.',
                 },
                 {
-                  icon: Sparkles,
-                  title: 'Research & ETL',
-                  desc: 'Extracting structured data from unstructured sources.',
+                  icon: Code2,
+                  title: 'Full-Stack Development',
+                  desc: 'Engineering skills to turn analysis into tools with real users.',
                 },
               ].map((f, i) => (
                 <div
@@ -154,18 +157,20 @@ export default function HomePage({ onNavigate }: Props) {
       {/* CTA */}
       <section className="pb-20 lg:pb-28">
         <div className="container-mx container-px">
-          <div className="relative overflow-hidden card-surface p-10 lg:p-16 text-center hover:border-accent-500/30">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-accent-500/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="relative overflow-hidden card-surface p-8 lg:p-10 text-center hover:border-accent-500/30">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[160px] bg-accent-500/10 rounded-full blur-[100px] pointer-events-none" />
             <div className="relative">
-              <h2 className="heading-3 text-white">Have a project in mind?</h2>
-              <p className="body-lg mt-4 max-w-xl mx-auto">
-                I'm always happy to talk about software, data, and how to turn an idea into
-                something real. Let's connect.
+              <h2 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white">
+                Let's work together
+              </h2>
+              <p className="body mt-3 max-w-xl mx-auto">
+                I'm open to data analyst and data science roles. If you're hiring, or just want
+                to talk data, I'd love to hear from you.
               </p>
-              <button onClick={() => onNavigate('projects')} className="btn-primary mt-7">
-                View my projects
+              <a href={`mailto:${profile.email}`} className="btn-primary mt-5">
+                Get in touch
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

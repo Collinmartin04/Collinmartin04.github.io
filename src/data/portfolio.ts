@@ -14,10 +14,9 @@ export const profile = {
   intro:
     "I'm a computer science graduate from Wofford College, starting a Master's in Analytics at Georgia Tech in 2027. I have hands-on experience across data science, analytics, and software development, building machine learning models, data pipelines, and dashboards that solve real-world problems.",
   intro2:
-    'My experience spans software engineering, data pipelines, exploratory analysis, machine learning, and full-stack application development. I am especially interested in work where strong engineering and thoughtful analysis come together.',
+    "My experience spans data analysis, forecasting, data pipelines, and full-stack development. I'm most interested in work where thoughtful analysis and strong engineering come together, where the insight doesn't stop at a notebook but becomes something people actually use.",
   location: 'Charlotte, NC',
   email: 'collin.martinn04@gmail.com',
-  phone: '803-317-5969',
   socials: [
     { label: 'GitHub', href: 'https://github.com/Collinmartin04', icon: 'github' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/collin-martin-6461482b5/', icon: 'linkedin' },
@@ -27,7 +26,7 @@ export const profile = {
 export type SkillCategory = {
   title: string;
   icon: string;
-  skills: { name: string; level: number }[];
+  skills: { name: string }[];
 };
 
 export const skillCategories: SkillCategory[] = [
@@ -35,53 +34,60 @@ export const skillCategories: SkillCategory[] = [
     title: 'Languages',
     icon: 'code',
     skills: [
-      { name: 'Python', level: 92 },
-      { name: 'SQL', level: 88 },
-      { name: 'JavaScript', level: 86 },
-      { name: 'TypeScript', level: 82 },
-      { name: 'HTML / CSS', level: 84 },
+      { name: 'Python' },
+      { name: 'SQL' },
+      { name: 'R' },
+      { name: 'JavaScript' },
+      { name: 'TypeScript' },
+      { name: 'C#' },
+      { name: 'HTML/CSS' },
     ],
   },
   {
-    title: 'Libraries & Frameworks',
+    title: 'Data Analysis & Visualization',
     icon: 'chart',
     skills: [
-      { name: 'Pandas / NumPy', level: 90 },
-      { name: 'React', level: 84 },
-      { name: 'Matplotlib', level: 82 },
-      { name: 'Tableau / Power BI', level: 78 },
-      { name: 'React', level: 84 },
+      { name: 'Pandas' },
+      { name: 'NumPy' },
+      { name: 'Excel' },
+      { name: 'Matplotlib' },
+      { name: 'Plotly' },
+      { name: 'Tableau' },
+      { name: 'Power BI' },
+      { name: 'Streamlit' },
+      { name: 'Datawrapper' },
+      { name: 'PolicyMap' },
     ],
   },
   {
-    title: 'Data & Machine Learning',
+    title: 'Machine Learning & Forecasting',
     icon: 'brain',
     skills: [
-      { name: 'Data Cleaning & ETL', level: 92 },
-      { name: 'Exploratory Data Analysis', level: 90 },
-      { name: 'Time Series Forecasting', level: 82 },
-      { name: 'SARIMAX / Prophet / XGBoost', level: 78 },
-      { name: 'OCR with OpenCV / Tesseract', level: 76 },
+      { name: 'scikit-learn' },
+      { name: 'statsmodels' },
+      { name: 'SARIMAX' },
+      { name: 'Prophet' },
+      { name: 'XGBoost' },
+      { name: 'Time-Series Forecasting' },
+      { name: 'OpenCV' },
+      { name: 'Tesseract OCR' },
     ],
   },
   {
-    title: 'Tools & Platforms',
+    title: 'Engineering & Tools',
     icon: 'database',
     skills: [
-      { name: 'Git / GitHub', level: 90 },
-      { name: 'Docker', level: 82 },
-      { name: 'PostgreSQL / MySQL', level: 84 },
-      { name: 'Azure', level: 76 },
-      { name: 'Jupyter / VSCode', level: 92 },
+      { name: 'Git/GitHub' },
+      { name: 'PostgreSQL' },
+      { name: 'MySQL' },
+      { name: 'Docker' },
+      { name: 'Azure DevOps' },
+      { name: 'FastAPI' },
+      { name: 'React' },
+      { name: 'Jupyter' },
+      { name: 'VS Code' },
     ],
   },
-];
-
-export const tools = [
-  'Python', 'SQL', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Pandas',
-  'NumPy', 'Matplotlib', 'Tableau', 'Power BI', 'React', 'Git', 'Docker',
-  'Jupyter', 'Azure', 'PostgreSQL', 'MySQL', 'VSCode', 'GitHub', 'Tesseract',
-  'OpenCV', 'Streamlit', 'Tailwind CSS',
 ];
 
 export type Project = {
@@ -93,6 +99,7 @@ export type Project = {
   metrics: { label: string; value: string }[];
   accent: 'accent' | 'gold' | 'blue';
   githubUrl: string;
+  videoUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -112,15 +119,31 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/Collinmartin04/ER-Admissions-Forecast',
   },
   {
+    id: 'airbnb-roi-optimizer',
+    title: 'Airbnb ROI Optimizer',
+    category: 'Business Analytics',
+    description:
+      "Prospective Airbnb hosts often don't know where or how to invest for the best return. Using 9,698 real Nashville listings from Inside Airbnb, I built a Streamlit dashboard that compares estimated revenue across 35 districts and room types, with an interactive ROI calculator for testing pricing and availability scenarios.",
+    tags: ['Python', 'Pandas', 'Streamlit', 'Matplotlib', 'Seaborn', 'Jupyter'],
+    metrics: [
+      { label: 'Listings analyzed', value: '9,698' },
+      { label: 'Districts compared', value: '35' },
+      { label: 'Reviews in dataset', value: '774K' },
+    ],
+    accent: 'blue',
+    githubUrl: 'https://github.com/Collinmartin04/AirBnB-ROI-Optimizer-Project',
+  },
+  {
     id: 'or-check-in',
     title: 'QR Check-In System',
     category: 'Full-Stack Application',
     description:
-      'Wofford College needed a faster way to track attendance for classes and campus events. With a four-person Agile team, I built API routes, database models, SSO authentication, and automated tests for a full-stack platform with QR check-ins, attendance analytics, and CSV exports. Wofford plans to adopt it campus-wide.',
+      'Wofford College needed a faster way to track attendance for classes and campus events. With a four-person Scrum team, I built API routes, database models, SSO authentication, and automated tests for a full-stack platform with QR check-ins, attendance analytics, and CSV exports. Wofford plans to adopt it campus-wide.',
     tags: ['Python', 'PostgreSQL', 'React', 'TypeScript', 'FastAPI', 'Docker', 'Auth0'],
     metrics: [],
     accent: 'gold',
     githubUrl: 'https://github.com/joelgammah/Attendance-Checkin',
+    videoUrl: '/videos/qr-checkin-demo.mp4',
   },
 ];
 

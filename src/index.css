@@ -110,12 +110,6 @@
   .badge-gold {
     @apply badge bg-gold-500/10 border-gold-500/30 text-gold-400;
   }
-  .skill-bar {
-    @apply h-2 rounded-full bg-ink-800 overflow-hidden;
-  }
-  .skill-fill {
-    @apply h-full rounded-full bg-gradient-to-r from-accent-500 to-accent-300 transition-all duration-1000 ease-out;
-  }
 }
 
 @layer utilities {

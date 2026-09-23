@@ -21,7 +21,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               </span>
             </div>
             <p className="body max-w-xs text-sm">
-              {profile.role} based in {profile.location}. Open to new opportunities and collaborations.
+              Data scientist and analyst based in {profile.location}. Open to new opportunities and collaborations.
             </p>
             <div className="flex items-center gap-3 pt-1">
               <a
@@ -80,11 +80,6 @@ export default function Footer({ onNavigate }: FooterProps) {
               <li>
                 <a href={`mailto:${profile.email}`} className="link-underline">
                   {profile.email}
-                </a>
-              </li>
-              <li>
-                <a href={`tel:${profile.phone}`} className="link-underline">
-                  {profile.phone}
                 </a>
               </li>
               <li className="text-ink-400">{profile.location}</li>
