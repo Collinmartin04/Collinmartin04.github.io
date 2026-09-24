@@ -39,9 +39,9 @@ export default function ProjectsPage({ onNavigate }: Props) {
     document.title = 'Projects — Collin Martin';
   }, []);
 
-  const categories = ['All', ...Array.from(new Set(projects.map((p) => p.category)))];
+  const categories = ['All', ...Array.from(new Set(projects.map((p) => p.filterGroup)))];
   const [filter, setFilter] = useState('All');
-  const filtered = filter === 'All' ? projects : projects.filter((p) => p.category === filter);
+  const filtered = filter === 'All' ? projects : projects.filter((p) => p.filterGroup === filter);
 
   const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
 

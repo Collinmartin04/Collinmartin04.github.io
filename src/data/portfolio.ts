@@ -94,6 +94,7 @@ export type Project = {
   id: string;
   title: string;
   category: string;
+  filterGroup: 'Data Science' | 'Data Analytics' | 'Software';
   description: string;
   tags: string[];
   metrics: { label: string; value: string }[];
@@ -109,6 +110,7 @@ export const projects: Project[] = [
     id: 'er-admissions-forecasting',
     title: 'ER Admissions Forecasting',
     category: 'Demand Forecasting',
+    filterGroup: 'Data Science',
     description:
       'Emergency rooms struggle to staff for unpredictable patient volumes. I analyzed 10+ years of NHS England A&E data and compared SARIMAX, Prophet, and XGBoost models, cutting forecast error by 42%. The results are delivered through an interactive Streamlit dashboard.',
     tags: ['Python', 'Pandas', 'Excel', 'Streamlit', 'NumPy', 'SARIMAX', 'Prophet', 'XGBoost'],
@@ -124,6 +126,7 @@ export const projects: Project[] = [
     id: 'airbnb-roi-optimizer',
     title: 'Airbnb ROI Optimizer',
     category: 'Business Analytics',
+    filterGroup: 'Data Analytics',
     description:
       "Prospective Airbnb hosts often don't know where or how to invest for the best return. Using 9,698 real Nashville listings from Inside Airbnb, I built a Streamlit dashboard that compares estimated revenue across 35 districts and room types, with an interactive ROI calculator for testing pricing and availability scenarios.",
     tags: ['Python', 'Pandas', 'Streamlit', 'Matplotlib', 'Seaborn', 'Jupyter'],
@@ -139,6 +142,7 @@ export const projects: Project[] = [
     id: 'or-check-in',
     title: 'QR Check-In System',
     category: 'Full-Stack Application',
+    filterGroup: 'Software',
     description:
       'Wofford College needed a faster way to track attendance for classes and campus events. With a four-person Scrum team, I built API routes, database models, SSO authentication, and automated tests for a full-stack platform with QR check-ins, attendance analytics, and CSV exports. Wofford plans to adopt it campus-wide.',
     tags: ['Python', 'PostgreSQL', 'React', 'TypeScript', 'FastAPI', 'Docker', 'Auth0'],
@@ -151,6 +155,7 @@ export const projects: Project[] = [
     id: 'bank-churn-profitability',
     title: 'Bank Customer Churn & Profitability',
     category: 'Business Intelligence',
+    filterGroup: 'Data Analytics',
     description:
       'Banks lose revenue when valuable customers leave unnoticed. Using 10,000 retail banking records, I built a MySQL data model with SQL views for profitability and rule-based churn risk scoring, then built Power BI dashboards that flag high-value customers at risk of leaving. Customers the model flagged churned at 36%, nearly double the 20% overall rate.',
     tags: ['MySQL', 'SQL', 'Power BI', 'DAX', 'Data Modeling'],
