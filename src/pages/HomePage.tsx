@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ArrowRight, MapPin, Github, Linkedin, Sparkles, TrendingUp, BarChart3, Database, Code2 } from 'lucide-react';
+import { ArrowRight, MapPin, Github, Linkedin, Sparkles, TrendingUp, BarChart3, Database, Code2, Mail, Download } from 'lucide-react';
 import { profile, type PageId } from '@/data/portfolio';
 
 type Props = {
@@ -167,10 +167,25 @@ export default function HomePage({ onNavigate }: Props) {
                 I'm open to data analyst and data science roles. If you're hiring, or just want
                 to talk data, I'd love to hear from you.
               </p>
-              <a href={`mailto:${profile.email}`} className="btn-primary mt-5">
-                Get in touch
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+                <a href={`mailto:${profile.email}`} className="btn-primary">
+                  Get in touch
+                  <Mail className="w-4 h-4" />
+                </a>
+                <a href="/resume/collin-martin-resume.pdf" download className="btn-ghost">
+                  Download Resume
+                  <Download className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href={profile.socials.find((s) => s.icon === 'linkedin')?.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-ghost"
+                >
+                  LinkedIn
+                  <Linkedin className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
