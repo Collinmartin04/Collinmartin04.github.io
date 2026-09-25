@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Home } from 'lucide-react';
+import { Menu, X, BarChart3, Download } from 'lucide-react';
 import { navItems, type PageId } from '@/data/portfolio';
 
 type NavbarProps = {
@@ -35,8 +35,9 @@ export default function Navbar({ current, onNavigate }: NavbarProps) {
           className="flex items-center gap-2.5 group"
         >
           <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-accent-500 to-accent-700 text-ink-950 group-hover:scale-105 transition-transform">
-            <Home className="w-6 h-6" strokeWidth={2.5} />
+            <BarChart3 className="w-6 h-6" strokeWidth={2.5} />
           </span>
+          <span className="font-display font-bold text-lg text-white">CM</span>
         </button>
 
         {/* Desktop nav */}
@@ -58,6 +59,16 @@ export default function Navbar({ current, onNavigate }: NavbarProps) {
               </button>
             </li>
           ))}
+          <li>
+            <a
+              href="/resume/collin-martin-resume.pdf"
+              download
+              className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg text-ink-400 hover:text-white transition-all duration-200"
+            >
+              Resume
+              <Download className="w-3.5 h-3.5" />
+            </a>
+          </li>
         </ul>
 
         {/* Mobile toggle */}
@@ -88,6 +99,16 @@ export default function Navbar({ current, onNavigate }: NavbarProps) {
                 </button>
               </li>
             ))}
+            <li>
+              <a
+                href="/resume/collin-martin-resume.pdf"
+                download
+                className="flex items-center gap-1.5 w-full text-left px-4 py-3 rounded-lg text-sm font-medium text-ink-300 hover:bg-ink-800/60 hover:text-white transition-colors"
+              >
+                Resume
+                <Download className="w-3.5 h-3.5" />
+              </a>
+            </li>
           </ul>
         </div>
       )}
