@@ -8,7 +8,7 @@ type Props = {
 
 export default function HomePage({ onNavigate }: Props) {
   useEffect(() => {
-    document.title = `${profile.name} — ${profile.role}`;
+    document.title = `${profile.name} | ${profile.role}`;
   }, []);
 
   return (
