@@ -54,7 +54,9 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Plotly' },
       { name: 'Tableau' },
       { name: 'Power BI' },
+      { name: 'DAX' },
       { name: 'Streamlit' },
+      { name: 'Seaborn' },
       { name: 'Datawrapper' },
       { name: 'PolicyMap' },
     ],
@@ -84,6 +86,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Azure DevOps' },
       { name: 'FastAPI' },
       { name: 'React' },
+      { name: 'Next.js' },
       { name: 'Jupyter' },
       { name: 'VS Code' },
     ],
@@ -113,7 +116,7 @@ export const projects: Project[] = [
     filterGroup: 'Data Science',
     description:
       'Emergency rooms struggle to staff for unpredictable patient volumes. I analyzed 10+ years of NHS England A&E data and compared SARIMAX, Prophet, and XGBoost models, cutting forecast error by 42%. The results are delivered through an interactive Streamlit dashboard.',
-    tags: ['Python', 'Pandas', 'Excel', 'Streamlit', 'NumPy', 'SARIMAX', 'Prophet', 'XGBoost'],
+    tags: ['Python', 'Pandas', 'Streamlit', 'NumPy', 'SARIMAX', 'Prophet', 'XGBoost'],
     metrics: [
       { label: 'Model MAPE', value: '1.8%' },
       { label: 'Baseline MAPE', value: '3.1%' },
@@ -158,7 +161,7 @@ export const projects: Project[] = [
     filterGroup: 'Data Analytics',
     description:
       'Banks lose revenue when valuable customers leave unnoticed. Using 10,000 retail banking records, I built a MySQL data model with SQL views for profitability and rule-based churn risk scoring, then built Power BI dashboards that flag high-value customers at risk of leaving. Customers the model flagged churned at 36%, nearly double the 20% overall rate.',
-    tags: ['MySQL', 'SQL', 'Power BI', 'DAX', 'Data Modeling'],
+    tags: ['MySQL', 'SQL', 'Excel', 'Power BI', 'DAX', 'Data Modeling'],
     metrics: [
       { label: 'Customers analyzed', value: '10,000' },
       { label: 'High-value at-risk', value: '2,745' },

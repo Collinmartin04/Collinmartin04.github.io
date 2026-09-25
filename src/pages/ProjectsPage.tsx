@@ -180,9 +180,9 @@ export default function ProjectsPage({ onNavigate }: Props) {
                 )}
 
                 {/* Tags */}
-                <div className="mt-5 flex flex-wrap gap-2">
+                <div className="mt-5 flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="badge-neutral text-[11px]">
+                    <span key={tag} className="badge-neutral text-[11px] px-2">
                       {tag}
                     </span>
                   ))}
