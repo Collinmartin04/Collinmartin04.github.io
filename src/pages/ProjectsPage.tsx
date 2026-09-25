@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Sparkles, ArrowUpRight, Filter, ArrowRight, X } from 'lucide-react';
+import { Sparkles, Github, Filter, ArrowRight, X } from 'lucide-react';
 import { projects, type Project, type PageId } from '@/data/portfolio';
 
 type Props = {
@@ -118,7 +118,7 @@ export default function ProjectsPage({ onNavigate }: Props) {
                     aria-label={`View ${project.title} on GitHub`}
                     className="flex items-center justify-center w-9 h-9 rounded-lg border border-ink-700 text-ink-400 hover:text-white hover:border-accent-500/40 transition-all shrink-0"
                   >
-                    <ArrowUpRight className="w-4 h-4" />
+                    <Github className="w-4 h-4" />
                   </a>
                 </div>
 
